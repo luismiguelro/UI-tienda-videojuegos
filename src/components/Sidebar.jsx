@@ -2,10 +2,10 @@ import React from 'react'
 import { RiMoneyDollarCircleLine,RiFacebookLine, RiInstagramLine,RiYoutubeLine,RiTwitterLine} from "react-icons/ri";
 const Sidebar = () => {
   return (
-    <div className='h-full overflow-y-scroll text-gray-400 w-80'>
+    <div className='h-full overflow-y-scroll text-gray-400 w-80 '>
         {/*Search */}
-        <div className='bg-[#362c29] rounded-2xl p-4 mb-4'>
-            <h4 className='text-lg text-white mb-4git'>Categories</h4>
+        <div className='bg-[#362c29]/50 rounded-2xl p-4 mb-4'>
+            <h4 className='text3 -lg text-white mb-4git'>Categories</h4>
             <div className='flex flex-col gap-2'>
             <div className='flex items-center gap-2'>
                 <input type="checkbox" id='Adventure' className='chec' />
