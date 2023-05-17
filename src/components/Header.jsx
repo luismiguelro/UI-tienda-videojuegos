@@ -1,23 +1,40 @@
+import { useState } from "react";
 import React from 'react';
-import { RiShoppingCartLine,RiHeart2Line } from "react-icons/ri";
+import { RiShoppingCartLine,RiHeart2Line,RiMenu2Line,RiCloseLine} from "react-icons/ri";
+import Header_Menu from "./Header_Menu";
+
+
 const Header = () => {
+  const headerDesktop ={
+    container: 'hidden lg:flex items-center gap-6',
+    hover: 'hover:text-[#E58D27]',
+};
+  const headerMobil ={
+    container: 'mt-20',
+    listItem: 'text-4xl block text-center p-4'
+  }
+  const [showMenu,setShowMenu]=useState(false);
   return (
     <header className=' h-[10vh] text-gray-400 px-10 py-4 flex items-center justify-between bg-[#181A20] z-40'>
-      {/*Menu*/}
-      <ul className='flex items-center gap-6'>
-        <li>
-          <a href="#" className='hover:text-[#E58D27] transition-colors'>Home</a>
-        </li>
-        <li>
-          <a href="#" className='hover:text-[#E58D27] transition-colors' >Streams</a>
-        </li>
-        <li>
-          <a href="#" className='text-[#E58D27] transition-colors'>Game Store</a>
-        </li>
-        <li>
-          <a href="#" className='hover:text-[#E58D27] transition-colors'>News</a>
-        </li>
-      </ul>
+      {/*Mobil*/}
+      <button onClick={()=>setShowMenu(!showMenu)} className='lg:hidden text-2xl'>
+      <RiMenu2Line/>
+      </button>
+      <div className={`fixed left-0 w-full h-full bg-[#181A20] z-50 transition-all ${showMenu?"top-0":"-top-full"}`}>
+      <button className="text-3xl p-4">
+          <RiCloseLine onClick={()=>setShowMenu(!showMenu)} className='lg:hidden text-2xl'/>
+      </button>
+
+       {/*Menu Mobil*/}
+      <div>
+        <Header_Menu stylesMobil={headerMobil}/>
+      </div>
+      </div>
+      {/*Menu Desktop*/}
+      <div>
+        <Header_Menu styles={headerDesktop}/>
+      </div>
+     
       {/*User menu*/}
      <ul className='flex items-center gap-6 text-xl'>
       <li>
