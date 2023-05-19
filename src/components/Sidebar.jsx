@@ -1,12 +1,12 @@
 import React from 'react'
 import { useState } from "react";
-import { RiMoneyDollarCircleLine,RiFacebookLine, RiInstagramLine,RiYoutubeLine,RiTwitterLine,RiFilter3Line} from "react-icons/ri";
+import { RiMoneyDollarCircleLine,RiFacebookLine, RiInstagramLine,RiYoutubeLine,RiTwitterLine,RiFilter3Line, RiCloseLine} from "react-icons/ri";
 
 const Sidebar = () => {
   const [showSideBar,setShowSideBar] = useState(false);
   return (
     <>
-      <div className='w-full fixed lg:static -top-full lg:w-80 h-full overflow-y-scroll text-gray-400 bg-red-400'>
+      <div className={`w-[80%] md:w-[40%] fixed lg:static top-0 lg:w-80 h-full overflow-y-scroll text-gray-400 transition-all bg-[#181A20] p-4 shadow-2xl lg:shadow-none ${showSideBar ? "left-0":"-left-full"}`} >
           {/*Search */}
           <div className='bg-[#362c29]/50 rounded-2xl p-4 mb-4'>
               <h4 className='text3 -lg text-white mb-4git'>Categories</h4>
@@ -81,10 +81,9 @@ const Sidebar = () => {
               </button>
             </form>
           </div>
-          {/*Social media */}
-          <div>
-            <ul className='flex items-center justify-between'>
-              <li>
+         {/* Social media */}
+        <ul className="flex items-center justify-between">
+        <li>
                 <a href="https://www.facebook.com/" className='text-2xl hover:text-[#E58D27] ' target='_blank'><RiFacebookLine className='transition-all duration-200 hover:-translate-y-1'/></a>
               </li>
               <li>
@@ -96,14 +95,17 @@ const Sidebar = () => {
               <li>
                 <a href="https://www.youtube.com/" className='text-2xl  hover:text-[#E58D27]  ' target='_blank'><RiYoutubeLine className='transition-all duration-200 hover:-translate-y-1'/></a>
               </li>
-              
-            </ul>
-          </div>
+        </ul>
       </div>
-      {/*Button filter mobile */}
-      <button className='fixed bottom-4 right-4 bg-[#E58D27] p-4 rounded-full text-xl z-40'><RiFilter3Line/></button>
+      {/* Button mobile */}
+      <button
+        onClick={() => setShowSideBar(!showSideBar)}
+        className="lg:hidden fixed bottom-4 right-4 bg-[#E58D27] p-4 rounded-full text-xl"
+      >
+        {showSideBar ? <RiCloseLine /> : <RiFilter3Line />}
+      </button>
     </>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
