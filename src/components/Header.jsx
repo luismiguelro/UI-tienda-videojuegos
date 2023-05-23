@@ -15,14 +15,14 @@ const Header = () => {
   }
   const [showMenu,setShowMenu]=useState(false);
   return (
-    <header className=' h-[10vh] text-gray-400 px-10 py-4 flex items-center justify-between bg-[#181A20] z-40'>
+    <header className='h-[7vh] lg:h-[10vh] text-gray-400 px-10 py-4 flex items-center justify-between bg-[#181A20] z-40'>
       {/*Mobil*/}
-      <button onClick={()=>setShowMenu(!showMenu)} className='lg:hidden text-2xl'>
+      <button onClick={()=>setShowMenu(!showMenu)} className='text-2xl lg:hidden'>
       <RiMenu2Line/>
       </button>
       <div className={`fixed left-0 w-full h-full bg-[#181A20] z-50 transition-all ${showMenu?"top-0":"-top-full"}`}>
-      <button className="text-3xl p-4">
-          <RiCloseLine onClick={()=>setShowMenu(!showMenu)} className='lg:hidden text-2xl'/>
+      <button className="p-4 text-3xl">
+          <RiCloseLine onClick={()=>setShowMenu(!showMenu)} className='text-2xl lg:hidden'/>
       </button>
 
        {/*Menu Mobil*/}
